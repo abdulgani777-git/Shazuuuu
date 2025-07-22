@@ -1,0 +1,87 @@
+/* Importing professional-looking font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("images/bg.jpg"); /* Make sure path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  padding: 20px;
+}
+
+#game-area {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+}
+
+.balloon, .dustbin {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s;
+}
+
+.balloon:hover, .dustbin:hover {
+  transform: scale(1.1);
+}
+
+#scoreboard {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#game-over {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.8);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+}
+
+#game-over h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#game-over button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #00c6ff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+#game-over button:hover {
+  background-color: #0088cc;
+}

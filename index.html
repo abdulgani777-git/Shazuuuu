@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to AfreenVerse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a40, #2a2a72);
+      color: white;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+    .container {
+      text-align: center;
+      max-width: 90%;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.4em;
+      color: #ffccff;
+      text-shadow: 0 0 15px #ff66cc;
+    }
+    p {
+      font-size: 1.1em;
+      margin-bottom: 2em;
+      line-height: 1.6em;
+    }
+    .buttons button {
+      font-size: 1em;
+      padding: 12px 24px;
+      margin: 0 12px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: #ff66cc;
+      color: white;
+      box-shadow: 0 0 10px #ff66cc, 0 0 40px #ff66cc;
+      transition: all 0.3s ease-in-out;
+    }
+    .buttons button:hover {
+      transform: scale(1.1);
+      background-color: #ff1493;
+    }
+    .floating-emojis {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      animation: float 10s infinite ease-in-out;
+      opacity: 0.6;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+      }
+      100% {
+        transform: translateY(-10vh);
+      }
+    }
+    #deniedMessage {
+      display: none;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      color: pink;
+      font-size: 1.2em;
+      text-align: center;
+      box-shadow: 0 0 20px #ff66cc;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-emojis">
+    <div class="emoji" style="left: 10%; animation-delay: 0s">💖</div>
+    <div class="emoji" style="left: 30%; animation-delay: 3s">✨</div>
+    <div class="emoji" style="left: 50%; animation-delay: 5s">🌸</div>
+    <div class="emoji" style="left: 70%; animation-delay: 1s">🌟</div>
+    <div class="emoji" style="left: 90%; animation-delay: 4s">💕</div>
+  </div>
+  <div class="container">
+    <h1>✨ Welcome to AfreenVerse ✨</h1>
+    <p>
+      This magical space is personally crafted <strong>only</strong> for <strong>Afreen Shazana</strong>.<br />
+      If you're not her, please leave cutely 💖<br /><br />
+      <em>(This is a Premium Private Portal)</em>
+    </p>
+    <div class="buttons">
+      <button onclick="notAfreen()">No, I'm not</button>
+      <button onclick="yesAfreen()">Yes, I am Afreen</button>
+    </div>
+  </div>
+  <div id="deniedMessage">Oopsie! This magical world is only for Afreen. Please leave cutely 💖</div>
+
+  <script>
+    function notAfreen() {
+      document.querySelector('.container').style.display = 'none';
+      document.getElementById('deniedMessage').style.display = 'block';
+    }
+
+    function yesAfreen() {
+      // ✅ Go to Phase 2
+      window.location.href = "phase2.html";
+    }
+  </script>
+</body>
+</html>

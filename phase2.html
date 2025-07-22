@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading AfreenVerse...</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #1a1a40, #000);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }h1 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff66cc;
+  text-shadow: 0 0 10px #ff66cc;
+}
+
+.progress-container {
+  width: 80%;
+  max-width: 400px;
+  height: 25px;
+  background: #333;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #ff66cc;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff66cc, #ff1493);
+  transition: width 0.3s;
+}
+
+.status {
+  margin-top: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  min-height: 1.5em;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Loading AfreenVerse...</h1>
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <div class="status" id="statusText">Initializing...</div>  <script>
+    const progressBar = document.getElementById("progressBar");
+    const statusText = document.getElementById("statusText");
+
+    const messages = [
+      "Initializing...",
+      "Scanning Beauty...",
+      "Sparkles Detected ✨",
+      "Magical Soul Verified 💖",
+      "Finalizing AfreenVerse..."
+    ];
+
+    let progress = 0;
+    let messageIndex = 0;
+
+    const interval = setInterval(() => {
+      if (progress >= 100) {
+        clearInterval(interval);
+        statusText.textContent = "Loaded! Redirecting...";
+        setTimeout(() => {
+          window.location.href = "phase3.html";
+        }, 1500);
+      } else {
+        progress += Math.floor(Math.random() * 10) + 3;
+        if (progress > 100) progress = 100;
+        progressBar.style.width = progress + "%";
+
+        if (progress >= (messageIndex + 1) * 20 && messageIndex < messages.length) {
+          statusText.textContent = messages[messageIndex];
+          messageIndex++;
+        }
+      }
+    }, 600);
+  </script></body>
+</html>

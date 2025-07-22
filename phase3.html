@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎮 Let's Play a Game</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Josefin Sans', sans-serif;
+      background: linear-gradient(-45deg, #f8cdda, #1d2b64, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      color: white;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .buttons {
+      position: relative;
+    }
+
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    #yesBtn {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #e74c3c;
+      color: white;
+      position: absolute;
+    }
+
+    #cat {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      text-align: center;
+      z-index: 99;
+    }
+
+    #cat img {
+      width: 80px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    #speech {
+      background: white;
+      color: black;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-top: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    @keyframes bounce {
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="center" id="mainContent">
+    <h1>Are you Afreen Shazana? 😽<br>Wanna play a cute game?</h1>
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <div id="cat">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Cat" />
+    <div id="speech">Click Yes naa 😽</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const mainContent = document.getElementById("mainContent");
+
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    noBtn.addEventListener("mouseenter", moveButton);
+    noBtn.addEventListener("click", moveButton);
+
+    yesBtn.addEventListener("click", () => {
+      mainContent.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "phase4.html";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
