@@ -10,7 +10,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url("images/bg.jpg"); /* Make sure path is correct */
+  background-image: url("bg.jpg"); /* Make sure path is correct */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
